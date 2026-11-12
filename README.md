@@ -1,2 +1,2 @@
-# ctf-writeups
+# re-writeups
 journey_of_learn_re
