@@ -6,18 +6,18 @@
 
 下载附件，无壳64位，拖IDA，发现去符号了，而且字符串一眼没看见有效信息，运行一下，打印了Wrong，搜一下Wrong，来到了main。
 
-< img src="1.png" width="50%">
-< img src="2.png" width="50%">
+<img src="1.png" width="50%">
+<img src="2.png" width="50%">
 
 一步一步看一下，不清楚这个凭空出现的Src是什么，交叉引用一下，发现sub_140002B60也同样把输入存进Src里了。
 
-< img src="3.png" width="50%">
-< img src="4.png" width="50%">
+<img src="3.png" width="50%">
+<img src="4.png" width="50%">
 
 剩下就很清晰了，注释了一下，提炼成三个异或。
 
-< img src="5.png" width="50%">
-< img src="6.png" width="50%">
+<img src="5.png" width="50%">
+<img src="6.png" width="50%">
 
 看到 memcmp(内存比较)，于是顺着找密文(v12=Buf2)，但点进 Buf2 只发现了占位符，看来是动态拷进来的。交叉引用一下，来到一开始的 UP(而不是 Down，靠后的一般是在清空数据)，发现了密文。
 
